@@ -1,0 +1,88 @@
+<div class="container-full" style="background: url('assets/images/bat.jpg');background-attachment: fixed;background-size: cover;background-repeat: no-repeat;">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="assets/images/got-transparent.png" class="img-rounded title-image" alt="got-title" style="height: 150px;">
+    </div>
+   <!--  <div class="col-md-8 offset-md-2" *ngIf="allData.length > 0">
+      <div class="row no-gutters search-title">
+        <div class="col">
+          <input class="form-control border-secondary border-right-0 rounded-0" type="search" value="" id="example-search-input4">
+        </div>
+        <div class="col-auto">
+          <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <hr>
+
+  <!------------------books heading---------------------------->
+  <div class="row" *ngIf="books.length > 0">
+   <div class="col-md-12"> <h4 style="text-align: center;font-size: 35px;font-family: Verdana, Geneva, Tahoma, sans-serif;color: white;"> Books </h4></div><br><br><br>
+      <div class="col-md-3 col-sm-5 col-10" id="box" *ngFor="let item of books">
+        <div class="col-md-12">
+         <img src="assets/images/book.png" alt="books-img" style="height:40px;width: 40px;margin-left:40%;">
+
+        </div>
+        <br>
+        <div class="col-md-12" style="font-family:Arial, Helvetica, sans-serif;text-align: center;">
+          <div><b>{{item.name}}</b></div>
+            <div class="col-md-12"><b>( </b>{{ item.mediaType }}<b> )</b></div><br>
+              <div class="col-md-12" style="text-align: left;"><b>Pages: </b>{{item.numberOfPages}}</div>
+              <div class="col-md-12" style="text-align: left;"><b>Released: </b>{{item.released | date}}</div><hr>
+              <a [routerLink]="['/main/bookdetails',item.bookId]"><button class="btn btn-success btn-small">More</button></a><br><br>
+        </div>
+      </div>
+    
+  </div> <!-----------------------------end of books-------------------------------------------->
+<hr>
+  <div class="row" *ngIf="houses.length > 0">
+   <div class="col-md-12"> <h4 style="text-align: center;font-size: 35px;font-family: Verdana, Geneva, Tahoma, sans-serif;color: white;"> Houses </h4>
+  </div><br><br><br>
+      <div class="col-md-3 col-sm-5 col-10" id="box-houses" *ngFor="let item of houses">
+        <div class="col-md-12">
+         <img src="assets/images/house.png" alt="house-img" style="height:40px;width: 40px;margin-left:40%;">
+
+        </div>
+        <br>
+        <div class="col-md-12" style="font-family:Arial, Helvetica, sans-serif;text-align: center;">
+          <div *ngIf="item.name=='' " style="text-align: center;"><b>N/A</b></div>
+          <div *ngIf="item.name!=='' " style="text-align: center;"><b>{{item.name}}</b></div><br>
+            <div class="col-md-12" style="text-align: left;"><b>location: </b>{{ item.region }}<b></b></div>
+            <div class="col-md-12 text-truncate" *ngIf='item.coatOfArms=="" ' style="text-align: left;"><b>coat: </b>N/A</div>
+              <div class="col-md-12 text-truncate" *ngIf='item.coatOfArms!=="" ' style="text-align: left;"><b>coat: </b>{{item.coatOfArms}}</div>
+              <div class="col-md-12" style="text-align: left;"><b>Region: </b>{{item.region}}</div><hr>
+              <a [routerLink]="['/main/housedetails',item.houseId]"><button class="btn btn-success btn-small">More</button></a><br><br>
+        </div>
+      </div><hr>
+    
+  </div>
+<!------------------------------------------------end of houses------------------------------>
+  <hr>
+  <div class="row" *ngIf="characters.length > 0">
+   <div class="col-md-12"> <h4 style="text-align: center;font-size: 35px;font-family: Verdana, Geneva, Tahoma, sans-serif;color: white;"> Characters </h4></div><br><br><br>
+      <div class="col-md-3 col-sm-5 col-10" id="box-char" *ngFor="let item of characters">
+        
+        <div class="col-md-12" style="font-family:Arial, Helvetica, sans-serif;text-align: center">
+         <!--  <div class="col-md-12" *ngIf="item.gender=='Male'"><img src="/assets/images/boy.png" alt="" style="height:35px;width: 35px;margin:auto;"></div>
+          <div class="col-md-12" *ngIf="item.gender=='Female'"><img src="/assets/images/girl.png" alt="" style="height:40px;width: 40px;margin:auto;"></div><br> -->
+           <div class="col-md-12" *ngIf='item.aliases.length !== undefined && item.aliases.length > 0'>
+            <div *ngIf="item.name!==''" style="font-size: 30px;"><b>{{item.name}}</b></div>
+             <div *ngIf="item.name==''" style="font-size: 30px;"> <b>N/A</b></div><br>
+             <div *ngFor=" let name of item.aliases; let first=first;let last=last">
+               <div class=""><b>Aliases: </b> {{name}} {{last? "" : ", "}}</div><br>
+               <div class="col-md-12"><b>Gender: </b>{{item.gender}}</div><br>
+               <a [routerLink]="['/main/characterdetails',item.characterId]"><button class="btn btn-success btn-small">More</button></a><br><br>
+
+             </div>
+           </div>
+        </div>
+      </div></div><hr>
+    
+  </div>
+</div>
+
+

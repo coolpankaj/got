@@ -1,0 +1,11 @@
+p{
+    background-color: white;color: black;padding: 3px ;
+}
+.my-button:hover{
+    background-color: aqua;
+}
+@media only screen and (max-width: 768px) {
+.warrior{
+    display: none;
+}
+} 

@@ -1,0 +1,104 @@
+<div class="container-full">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a [routerLink]="['/main']">
+          <img src="assets/images/got-transparent.png" class="img-rounded title-image" alt="got-title" style="height: 100px;">
+        </a>
+      </div>
+    </div>
+    <hr>
+
+    <div class="row" *ngIf="currentHouse">
+      <div class="col-md-4 offset-md-4">
+        <img src="assets/images/haunted.jpg" alt="banner" style="width: 100%;height: 350px;border-radius: 5px;">
+      </div>
+    </div>
+    <br>
+    <div class="row" *ngIf="currentHouse">
+      <div class="col-md-6 offset-md-3" style="text-align: center;background-color: black;color: white;padding: 5px;border-radius: 5px;">
+        <div *ngIf='currentHouse.name !=="" && currentHouse.name !== null && currentHouse.name !== undefined' style="border-bottom: 1px solid white;">
+          <h2>{{currentHouse.name}}</h2>
+        </div>
+        <div *ngIf="currentHouse.name==''" style="border-bottom: 1px solid white;padding: 3px;">
+          <h2>N/A</h2>
+        </div>
+        <div style="border-bottom: 1px solid white;padding: 5px;" *ngIf="currentHouse.region!=='' && currentHouse.region!==null && currentHouse.region!==undefined ">
+          <h5>Region : {{currentHouse.region}}</h5>
+        </div>
+        <div style="border-bottom: 1px solid white;padding: 5px;" *ngIf="currentHouse.region==''">
+          <h5>Region : </h5>N/A
+        </div>
+        <div style="border-bottom: 1px solid white;padding: 5px;" *ngIf="currentHouse.coatOfArms!=='' && currentHouse.coatOfArms!==null && currentHouse.coatOfArms!==undefined ">
+          <h5>CoatOfArms : {{currentHouse.coatOfArms}}</h5>
+        </div>
+        <div style="border-bottom: 1px solid white;padding: 5px;" *ngIf="currentHouse.coatOfArms==''">
+          <h5>CoatOfArms : N/A</h5>
+        </div>
+        <div style="border-bottom: 1px solid white;padding: 5px;" *ngIf="currentHouse.words!=='' ">
+          <h5>Words : {{currentHouse.words}}</h5>
+        </div>
+        <div *ngIf="currentHouse.titles.length>0">
+          <div *ngIf="currentHouse.titles[0]!==''">
+              <h5>Titles : </h5>
+            <div *ngFor="let title of currentHouse.titles;let first = first; let last = last;">
+              <h5>{{title}}{{last?"":","}}</h5>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="currentHouse.seats.length>0" style="border-bottom: 1px solid white;padding: 5px;">
+          <div *ngIf="currentHouse.seats[0]!==''">
+            <div *ngFor="let seat of currentHouse.seats">
+              <h5>Seats : {{seat}}</h5>
+            </div>
+          </div>
+        </div>
+        <div style="border-bottom: 1px solid white;padding: 5px;" *ngIf="currentHouse.currentLord!=='' && currentHouse.currentLord!==null && currentHouse.currentLord!==undefined ">
+          <h5 class="text-truncate">CurrentLord : {{currentHouse.currentLord}}</h5>
+        </div>
+        <div style="border-bottom: 1px solid white;padding: 5px;" *ngIf="currentHouse.heir!=='' && currentHouse.heir!==null && currentHouse.heir!==undefined ">
+          <h5 class="text-truncate">Heir : {{currentHouse.heir}}</h5>
+        </div>
+        <div style="border-bottom: 1px solid white;padding: 5px;" *ngIf="currentHouse.overlord!=='' && currentHouse.overlord!==null && currentHouse.overlord!==undefined ">
+          <h5 class="text-truncate">Overlord : {{currentHouse.overlord}}</h5>
+        </div>
+        <div style="border-bottom: 1px solid white;padding: 5px;" *ngIf="currentHouse.founder!=='' && currentHouse.founder!==null && currentHouse.founder!==undefined ">
+            <h5>Founder : {{currentHouse.founder}}</h5>
+          </div>
+          <div style="border-bottom: 1px solid white;padding: 5px;" *ngIf="currentHouse.diedOut!=='' && currentHouse.diedOut!==null && currentHouse.diedOut!==undefined ">
+              <h5>DiedOut : {{currentHouse.diedOut}}</h5>
+            </div>
+            <!-- <div *ngIf="currentHouse.ancestralWeapons.length > 0" style="border-bottom: 1px solid white;padding: 5px;">
+                <div *ngIf="currentHouse.ancestralWeapons[0]!=='' ">
+                  <div *ngFor="let weapon of currentHouse.ancestralWeapons">
+                    <h5>AncestralWeapons : {{weapon}}</h5>
+                  </div>
+                </div>
+              </div> -->
+        <div *ngIf="currentHouse.cadetBranches.length>0" style="border-bottom: 1px solid white;padding: 5px;">
+          <div *ngIf="currentHouse.cadetBranches[0]!==''">
+            <div *ngFor="let cadet of currentHouse.cadetBranches">
+              <h5>cadetBranches : {{cadet}}</h5>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="currentHouse.swornMembers.length>0" style="border-bottom: 1px solid white;padding: 5px;">
+          <div *ngIf="currentHouse.swornMembers[0]!==''">
+            <h5 style="text-align: center">SwornMembers :</h5>
+            <div *ngFor="let weapon of currentHouse.swornMembers">
+              <h5 class="text-truncate"> {{weapon}}</h5>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+          <div><button [routerLink] ="['/main']" class="btn  btn-lg my-button">Main Page</button></div>
+      </div>
+    </div>
+  </div>
+
+</div>

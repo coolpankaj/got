@@ -1,0 +1,140 @@
+<div class="container-full" style="background: url('assets/images/bat.jpg');background-attachment: fixed;background-size: cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a [routerLink]="['/main']">
+          <img src="assets/images/got-transparent.png" class="img-rounded title-image" alt="got-title" style="height: 100px;">
+        </a>
+      </div>
+    </div>
+    <hr>
+
+    <div *ngIf="currentCharacter" style="color: white;">
+      <div class="row">
+        <div class="col-md-4 offset-md-2" style="text-align: left;font-size: 20px;font-family: monospace;">
+          <div *ngIf="currentCharacter.name=='' " >
+            <p>
+              <b>NAME : </b>N/A</p>
+          </div>
+
+          <div *ngIf='currentCharacter.name!=="" '>
+            <p>
+              <b>NAME : </b>{{currentCharacter.name}}</p>
+          </div>
+
+          <div *ngIf="currentCharacter.gender!=='' ">
+            <p>
+              <b>GENDER : </b>{{currentCharacter.gender}}</p>
+          </div>
+
+          <div *ngIf="currentCharacter.culture!=='' ">
+            <p>
+              <b>CULTURE : </b>{{currentCharacter.culture}}</p>
+          </div>
+
+          <div *ngIf="currentCharacter.born!=='' ">
+            <p>
+              <b>BORN : </b>{{currentCharacter.born}}</p>
+          </div>
+
+          <div *ngIf="currentCharacter.died!=='' ">
+            <p>
+              <b>DIED : </b>{{currentCharacter.died}}</p>
+          </div>
+
+          <div *ngIf="currentCharacter.titles.length>0 ">
+            <div *ngIf="currentCharacter.titles[0]!==''" >
+                <b>Titles : </b>
+                <div *ngFor="let title of currentCharacter.titles">
+                    <p class="text-truncate">
+                      {{title}}</p>
+                  </div>
+            </div>
+           
+          </div>
+          <div *ngIf="currentCharacter.father!=='' ">
+            <p>
+              <b>FATHER : </b>{{currentCharacter.father}}</p>
+          </div>
+
+          <div *ngIf="currentCharacter.mother!=='' ">
+            <p>
+              <b>MOTHER : </b>{{currentCharacter.mother}}</p>
+          </div>
+
+          <div *ngIf="currentCharacter.spouse!=='' ">
+            <p>
+              <b>SPOUSE : </b>{{currentCharacter.spouse}}</p>
+          </div>
+
+          <div *ngIf="currentCharacter.allegiances.length>0 ">
+            <div *ngFor="let allegiance of currentCharacter.allegiances">
+              <p class="text-truncate">
+                <b>Alligiances : </b>{{allegiance}}</p>
+            </div>
+          </div>
+          <div *ngIf="currentCharacter.aliases.length>0 ">
+            <div *ngFor="let aliase of currentCharacter.aliases">
+              <p class="text-truncate">
+                <b>Aliases : </b>{{aliase}}</p>
+            </div>
+          </div>
+          <div *ngIf="currentCharacter.tvSeries.length>0 ">
+              <div *ngIf="currentCharacter.tvSeries[0]!==''" >
+                  <p><b>Tvseries : </b></p>
+                  <div *ngFor="let tv of currentCharacter.tvSeries">
+                      <p class="text-center">
+                        {{tv}}</p>
+                    </div>
+              </div>
+              <div *ngIf="currentCharacter.playedBy.length>0 ">
+                  <div *ngIf="currentCharacter.playedBy[0]!==''" >
+                      <div *ngFor="let play of currentCharacter.playedBy">
+                          <p class="text-truncate">
+                            <b>PlayedBy : </b>{{play}}</p>
+                        </div>
+                  </div>
+             </div>
+             <div *ngIf="currentCharacter.books.length>0 ">
+                <div *ngIf="currentCharacter.books[0]!==''" >
+                    <p><b>Books : </b></p>
+                    <div *ngFor="let book of currentCharacter.books;let first=first;let last=last;">
+                        
+                      <p class="text-truncate text-center">
+                          {{book}}</p>
+                      </div>
+                </div>
+           </div>
+           <div *ngIf="currentCharacter.povBooks.length>0 ">
+              <div *ngIf="currentCharacter.povBooks[0]!==''" >
+                  <div *ngFor="let povbook of currentCharacter.povBooks">
+                      <p class="text-truncate">
+                        <b>PovBooks : </b>{{povbook}}</p>
+                    </div>
+              </div>
+         </div>
+      </div>
+     
+    </div>
+   <div class="col-md-4 warrior" style="margin-left: 10%">
+      <div *ngIf="currentCharacter.gender=='Male' ">
+          <img src="assets/images/male-new.jpg" alt="" style="width: 100%;height: 100%;">
+        </div>
+        <div *ngIf="currentCharacter.gender=='Female' ">
+            <img src="assets/images/female-new.jpg" alt="" style="width: 100%;height: 100%;">
+          </div>     
+   </div>
+   
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+        <div><button [routerLink] ="['/main']" class="btn  btn-lg my-button">Main Page</button></div>
+    </div>
+  </div>
+  </div>
+  
+  </div>
+  
+  
+ 

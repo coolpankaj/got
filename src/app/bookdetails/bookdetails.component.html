@@ -1,0 +1,70 @@
+<div class="container-full" style="background: url('assets/images/bat.jpg');background-attachment: fixed;background-size: cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <a [routerLink]="['/main']" ><img src="assets/images/got-transparent.png" class="img-rounded title-image" alt="got-title" style="height: 100px;"></a>
+      </div>
+    </div><hr>
+  <div class="row" *ngIf='currentBook' style="background-color:  #003333;">
+    <div class="col-md-3 col-sm-4">
+      <img src="assets/images/book.jpg" alt="book-img" style="width: 100%;height: 200px;">
+    </div>
+    <div class="col-md-4 col-sm-4" style="color: white;">
+      <h3 *ngIf='currentBook.name !== "" && currentBook.name !== null && currentBook.name !== undefined'><b>{{currentBook.name}}</b></h3>
+      <h3 *ngIf= 'currentBook.name === "" || currentBook.name === null || currentBook.name === undefined'><b>N/A</b></h3>
+    
+    <div *ngIf='currentBook.authors.length>0'>
+      <div *ngFor='let author of currentBook.authors'>
+       <p>({{author}})</p>
+      </div>
+    </div>
+   
+    <div *ngIf='currentBook.numberOfPages'>
+      <p>Pages : {{currentBook.numberOfPages}}</p>
+    </div>
+    <div *ngIf='currentBook.country'>
+      <p>Country : {{currentBook.country}}</p>
+    </div>
+    <div *ngIf='currentBook.mediaType'>
+      <p>MediaType : {{currentBook.mediaType}}</p>
+    </div>
+     </div>
+     <div class="col-md-4 col-sm-4" style="color: white;">
+      <br><br><br> <div *ngIf="currentBook.released">
+         <p>Released : {{currentBook.released | date}}</p>
+       </div>
+       <div *ngIf="currentBook.publisher">
+        <p>Publisher : <b>{{currentBook.publisher}}</b></p>
+      </div>
+      <div *ngIf='currentBook.isbn'>
+        <p>ISBN : {{currentBook.isbn}}</p>
+      </div>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-12" style="color: white;" *ngIf="currentBook.characters.length>0">
+       <div><p class="text-truncate" style="font-size: 25px;text-align: center;margin-top: 25px;letter-spacing: 3px;background-color: white;padding: 10px;color: black;">CHARACTERS</p></div><hr>
+        <div *ngFor="let character of currentBook.characters" >
+          <div class="text-truncate text-center" id="char-box">
+            {{character}}
+          </div>
+        </div>
+     </div>
+     <div class="col-md-6 col-sm-6 col-xs-12" style="color: white;" *ngIf="currentBook.povCharacters.length>0">
+        <div><p class="text-truncate" style="font-size: 25px;text-align: center;margin-top: 25px;letter-spacing: 3px;background-color: white;padding: 10px;color: black;">POV-CHARACTERS</p></div><hr>
+         <div *ngFor="let povcharacter of currentBook.povCharacters" >
+           <div class="text-truncate text-center" id="povchar-box">
+             {{povcharacter}}
+           </div>
+         </div>
+      </div>
+      
+      
+  </div><br>
+  <div class="row">
+    <div class="col-md-12 text-center">
+        <div><button [routerLink] ="['/main']" class="btn  btn-lg my-button">Main Page</button></div>
+    </div>
+  </div>
+  </div>
+  
+  </div>
+  
